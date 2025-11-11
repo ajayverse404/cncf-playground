@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-learning-app
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: k8s-learning-app
+    app.kubernetes.io/part-of: kubernetes-concepts-demo
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/REPLACE_WITH_YOUR_ORG/Skill__DevOps_K8sEnd2End.git
+    targetRevision: HEAD
+    path: infra
+    kustomize:
+      commonLabels:
+        app.kubernetes.io/managed-by: argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8s-learning
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

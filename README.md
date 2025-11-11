@@ -74,6 +74,24 @@ docker build -t k8s-learning-frontend:latest ./frontend
    curl http://localhost:8000/api/health
    ```
 
+## Manage with Argo CD
+
+1. Update `infra/argocd-application.yaml` so `spec.source.repoURL` points at your Git repository.
+2. Apply the Application manifest into the Argo CD control plane namespace (defaults to `argocd`):
+
+   ```bash
+   kubectl apply -f infra/argocd-application.yaml
+   ```
+
+3. In the Argo CD UI or CLI, observe the new application `k8s-learning-app`; Argo CD will sync the `infra/` kustomization into the `k8s-learning` namespace.
+4. To force a sync via CLI:
+
+   ```bash
+   argocd app sync k8s-learning-app
+   ```
+
+   Add `--prune` if you disabled automated pruning in the manifest.
+
 ## Customize the Demo
 
 - Update `infra/backend-configmap.yaml` to tweak the message and environment label surfaced by the API.
