@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: k8s-learning
+  labels:
+    app.kubernetes.io/name: k8s-learning
+    app.kubernetes.io/part-of: kubernetes-concepts-demo
+

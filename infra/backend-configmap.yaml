@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: k8s-learning
+  labels:
+    app: backend
+    app.kubernetes.io/part-of: kubernetes-concepts-demo
+data:
+  APP_MESSAGE: "Hello from the ConfigMap!"
+  APP_ENVIRONMENT: "cluster"
+
