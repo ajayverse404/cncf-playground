@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: k8s-learning-backend:latest
+          image: ajayverse404/k8s-learning-backend:latest
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:

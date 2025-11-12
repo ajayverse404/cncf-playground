@@ -28,13 +28,15 @@ From the repository root:
 
 ```bash
 # Backend FastAPI image
-docker build -t k8s-learning-backend:latest ./backend
+docker build -t ajayverse404/k8s-learning-backend:latest ./backend
+docker push ajayverse404/k8s-learning-backend:latest
 
 # Frontend React image
-docker build -t k8s-learning-frontend:latest ./frontend
+docker build -t ajayverse404/k8s-learning-frontend:latest ./frontend
+docker push ajayverse404/k8s-learning-frontend:latest
 ```
 
-> **Tip:** If you are using Kind or another local cluster, either push these images to a registry reachable by the cluster or load the images directly (e.g. `kind load docker-image k8s-learning-backend:latest`).
+> **Tip:** If you are using Kind or another local cluster, either push these images to a registry reachable by the cluster or load the images directly (e.g. `kind load docker-image ajayverse404/k8s-learning-backend:latest`).
 
 ## Deploy to Kubernetes
 
