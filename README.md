@@ -38,6 +38,20 @@ docker push ajayverse404/k8s-learning-frontend:latest
 
 > **Tip:** If you are using Kind or another local cluster, either push these images to a registry reachable by the cluster or load the images directly (e.g. `kind load docker-image ajayverse404/k8s-learning-backend:latest`).
 
+### Automated Builds with GitHub Actions
+
+This repository includes a workflow at `.github/workflows/docker-publish.yml` that builds and publishes both images whenever you push to `main` or trigger the workflow manually.
+
+1. In your GitHub repository settings, create the following secrets using a Docker Hub access token:
+   - `DOCKERHUB_USERNAME`: Your Docker Hub username.
+   - `DOCKERHUB_TOKEN`: A Docker Hub Personal Access Token with `read`, `write`, and `delete` permissions.
+2. Push to `main` or run the workflow with **Run workflow** → **Run workflow**.
+3. Each run publishes two tags per image:
+   - `latest`
+   - An auto-incrementing version in the format `v1.<run_number>` (derived from the GitHub Actions run number).
+
+Update the Kubernetes manifests in `infra/` to reference whichever tag you prefer (`latest` or the versioned tag).
+
 ## Deploy to Kubernetes
 
 1. **Create the namespace, ConfigMaps, Secret, ReplicaSet, Deployment, and Services:**

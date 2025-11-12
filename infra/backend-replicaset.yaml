@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/component: api
     app.kubernetes.io/part-of: kubernetes-concepts-demo
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: backend
