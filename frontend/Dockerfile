@@ -15,7 +15,7 @@ FROM nginx:1.27-alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 43000
+EXPOSE 32100
 
 CMD ["nginx", "-g", "daemon off;"]
 

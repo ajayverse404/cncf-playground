@@ -13,8 +13,8 @@ spec:
     app.kubernetes.io/component: api
   ports:
     - name: http
-      port: 42000
-      targetPort: 42000
+      port: 32111
+      targetPort: 32111
       protocol: TCP
   type: ClusterIP
 

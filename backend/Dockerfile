@@ -15,7 +15,7 @@ RUN pip install --upgrade pip && \
 
 COPY app.py /app/app.py
 
-EXPOSE 42000
+EXPOSE 32111
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "42000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "32111"]
 

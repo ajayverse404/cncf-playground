@@ -13,8 +13,8 @@ spec:
     app.kubernetes.io/component: web
   ports:
     - name: http
-      port: 43000
-      targetPort: 43000
-      nodePort: 43080
+      port: 32100
+      targetPort: 32100
+      nodePort: 32180
   type: NodePort
 

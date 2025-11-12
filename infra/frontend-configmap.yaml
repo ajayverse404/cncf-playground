@@ -9,6 +9,6 @@ metadata:
 data:
   config.json: |
     {
-      "apiBaseUrl": "http://backend-service.k8s-learning.svc.cluster.local:42000"
+      "apiBaseUrl": "http://backend-service.k8s-learning.svc.cluster.local:32111"
     }
 
