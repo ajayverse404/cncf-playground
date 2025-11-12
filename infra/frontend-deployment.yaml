@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ajayverse404/k8s-learning-frontend:latest
+          image: ajayverse404/k8s-learning-frontend:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 32100
