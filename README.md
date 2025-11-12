@@ -54,6 +54,27 @@ Update the Kubernetes manifests in `infra/` to reference whichever tag you prefe
 
 ## Deploy to Kubernetes
 
+### Install an Ingress Controller (required for frontend ingress)
+
+Install an Ingress controller if your cluster does not already provide one. The examples below use the community `ingress-nginx` controller—choose the variant that matches your environment.
+
+```bash
+# For managed clouds or bare metal clusters
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+
+# For Kind (uses NodePort under the hood)
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+# For Minikube you can alternatively enable the addon
+minikube addons enable ingress
+```
+
+Wait until the controller pods report `Running`:
+
+```bash
+kubectl get pods -n ingress-nginx
+```
+
 1. **Create the namespace, ConfigMaps, Secret, ReplicaSet, Deployment, and Services:**
 
    ```bash
