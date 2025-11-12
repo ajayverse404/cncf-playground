@@ -27,11 +27,11 @@ Use it as a lab environment to explore how application components fit together i
 From the repository root:
 
 ```bash
-# Backend FastAPI image
+# Backend FastAPI image (listens on 42000)
 docker build -t ajayverse404/k8s-learning-backend:latest ./backend
 docker push ajayverse404/k8s-learning-backend:latest
 
-# Frontend React image
+# Frontend React image (served by Nginx on 43000)
 docker build -t ajayverse404/k8s-learning-frontend:latest ./frontend
 docker push ajayverse404/k8s-learning-frontend:latest
 ```
@@ -67,13 +67,13 @@ docker push ajayverse404/k8s-learning-frontend:latest
 
 4. **Access the frontend:**
 
-   The frontend Service is configured as a `NodePort` on `30080`. When running on a local cluster, open `http://localhost:30080`. In managed clusters, adjust the Service type as needed (for example, change to `LoadBalancer`).
+   The frontend Service is configured as a `NodePort` on `43080` (ensure your cluster allows NodePorts in this range). When running on a local cluster, open `http://localhost:43080`. In managed clusters, adjust the Service type or NodePort range as needed.
 
 5. **Check the backend health endpoint:**
 
    ```bash
-   kubectl port-forward -n k8s-learning svc/backend-service 8000:8000
-   curl http://localhost:8000/api/health
+   kubectl port-forward -n k8s-learning svc/backend-service 42000:42000
+   curl http://localhost:42000/api/health
    ```
 
 ## Manage with Argo CD

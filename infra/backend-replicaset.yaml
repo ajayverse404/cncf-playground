@@ -30,17 +30,17 @@ spec:
             - secretRef:
                 name: backend-secret
           ports:
-            - containerPort: 8000
+            - containerPort: 42000
           readinessProbe:
             httpGet:
               path: /api/health
-              port: 8000
+              port: 42000
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /api/health
-              port: 8000
+              port: 42000
             initialDelaySeconds: 15
             periodSeconds: 20
 

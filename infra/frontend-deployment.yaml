@@ -25,7 +25,7 @@ spec:
           image: ajayverse404/k8s-learning-frontend:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 80
+            - containerPort: 43000
           volumeMounts:
             - name: frontend-config
               mountPath: /usr/share/nginx/html/config
